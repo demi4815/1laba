@@ -3,40 +3,40 @@ package com.company;
 public class Container
 {
 
-    int m_length;
-    int[] m_data;
+    int mLength;
+    int[] mData;
 
     Container()
     {
-        m_length = 0;
-        m_data = null;
+        mLength = 0;
+        mData = null;
     }
 
     Container(int length)
     {
         assert(length >= 0);
-        m_length = length;
+        mLength = length;
 
 
         if (length > 0)
-            m_data = new int[length];
+            mData = new int[length];
         else
-            m_data = null;
+            mData = null;
     }
 
     void Erase()
     {
-        m_data = null;
-        m_length = 0;
+        mData = null;
+        mLength = 0;
     }
 
     int Get(int index)
     {
-        assert(index >= 0 && index < m_length);
-        return m_data[index];
+        assert(index >= 0 && index < mLength);
+        return mData[index];
     }
 
-    int GetLength() { return m_length; }
+    int GetLength() { return mLength; }
 
     void Resize1(int newLength)  //Изменение размера массива с удалением всех старых элементов
     {
@@ -48,13 +48,13 @@ public class Container
             return;
 
         // Дальше нам нужно выделить новые элементы
-        m_data = new int[newLength];
-        m_length = newLength;
+        mData = new int[newLength];
+        mLength = newLength;
     }
 
     void Resize2(int newLength) //Изменение размера массива с сохранением всех элементов
     {
-        if (newLength == m_length)
+        if (newLength == mLength)
             return;
 
         if (newLength <= 0)
@@ -66,75 +66,75 @@ public class Container
         // Выделяем новый массив
         int[] data = new int[newLength];
 
-        if (m_length > 0)
+        if (mLength > 0)
         {
-            int elementsToCopy = Math.min(newLength, m_length);
+            int elementsToCopy = Math.min(newLength, mLength);
 
             // Поочередно копируем элементы
             for (int index = 0; index < elementsToCopy ; index++)
-                data[index] = m_data[index];
+                data[index] = mData[index];
         }
 
         // Удаляем старый массив, так как он нам уже не нужен
-        m_data = null;
+        mData = null;
 
-        m_data = data;
-        m_length = newLength;
+        mData = data;
+        mLength = newLength;
     }
 
     void Insert(int value, int index)
     {
-        assert(index >= 0 && index <= m_length);
+        assert(index >= 0 && index <= mLength);
 
         // Создаем новый массив на один элемент больше старого массива
-        int[] data = new int[m_length+1];
+        int[] data = new int[mLength + 1];
 
         // Копируем все элементы до index
         for (int before = 0; before < index; before++)
-            data[before] = m_data[before];
+            data[before] = mData[before];
 
         // Вставляем наш новый элемент в наш новый массив
         data [index] = value;
 
         // Копируем все значения после вставляемого элемента
-        for (int after = index; after < m_length; after++)
-            data[after+1] = m_data[after];
+        for (int after = index; after < mLength; after++)
+            data[after+1] = mData[after];
 
         // Удаляем старый массив и используем вместо него новый массив
-        m_data = null;
+        mData = null;
 
-        m_data = data;
-        m_length++;
+        mData = data;
+        mLength++;
     }
 
     void Remove(int index)
     {
-        assert(index >= 0 && index < m_length);
+        assert(index >= 0 && index < mLength);
 
-        if (m_length == 1)
+        if (mLength == 1)
         {
             Erase();
             return;
         }
 
-        int[] data = new int[m_length-1];
+        int[] data = new int[mLength - 1];
 
         for (int before = 0; before  < index; before++)
-            data[before] = m_data[before];
+            data[before] = mData[before];
 
 
-        for (int after = index+1; after < m_length; after++ )
-            data[after-1] = m_data[after];
+        for (int after = index+1; after < mLength; after++ )
+            data[after-1] = mData[after];
 
-        m_data = null;
+        mData = null;
 
-        m_data = data;
-        --m_length;
+        mData = data;
+        --mLength;
     }
 
     void InsertAtBeginning(int value) { Insert(value, 0); }
 
-    void InsertAtEnd(int value) { Insert(value, m_length); }
+    void InsertAtEnd(int value) { Insert(value, mLength); }
 
 
 

@@ -15,17 +15,17 @@ public class Main {
 
         // Заполняем массив числами от 1 до n
         for (int i = 0; i < n; i++)
-            array.m_data[i] = i + 1;
+            array.mData[i] = i + 1;
 
         for (int i = 0; i < array.GetLength(); i++)
-            System.out.print(array.m_data[i] + " ");
+            System.out.print(array.mData[i] + " ");
         System.out.println();
 
         // Изменяем размер массива до 7 элементов
         array.Resize2(7);
 
         for (int i = 0; i < array.GetLength(); i++)
-            System.out.print(array.m_data[i] + " ");
+            System.out.print(array.mData[i] + " ");
         System.out.println();
 
         // Вставляем число 15 после элемента с индексом 4
@@ -40,7 +40,7 @@ public class Main {
 
         // Выводим все элементы массива
         for (int i = 0; i < array.GetLength(); i++)
-            System.out.print(array.m_data[i] + " ");
+            System.out.print(array.mData[i] + " ");
         System.out.println();
 
         // Получаем элемент с индексом 5
