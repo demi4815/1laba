@@ -105,7 +105,7 @@ class Container <Type>
         mLength++;
     }
 
-    void Remove(int index)
+    void RemoveIndex(int index) //Удаление по индексу
     {
         assert(index >= 0 && index < mLength);
 
@@ -128,6 +128,34 @@ class Container <Type>
 
         mData = data;
         --mLength;
+    }
+
+    void Remove(Type value) //Удаление по индексу
+    {
+        int index = -1; //Невозможно будет найти такой же индекс
+        for (int i = 0; i < mLength; i++)
+        {
+            if (this.mData[i] == value)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if (index >= 0)
+        {
+            Object[] data = new Object[mLength - 1];
+
+            for (int i = 0; i < index; i++)  data[i] = mData[i];
+
+            for (int i = index + 1; i < mLength; i++) data[i-1] = mData[i];
+
+            mData = null;
+
+            mData = data;
+            --mLength;
+        }
+
     }
 
     void InsertAtBeginning(Type value) { Insert(value, 0); }
