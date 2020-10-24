@@ -1,10 +1,9 @@
 package com.company;
 
-public class Container
+class Container <Type>
 {
-
     int mLength;
-    int[] mData;
+    Object [] mData;
 
     Container()
     {
@@ -17,9 +16,8 @@ public class Container
         assert(length >= 0);
         mLength = length;
 
-
         if (length > 0)
-            mData = new int[length];
+            mData = new Object[length];
         else
             mData = null;
     }
@@ -30,10 +28,10 @@ public class Container
         mLength = 0;
     }
 
-    int Get(int index)
+    Type Get(int index)
     {
         assert(index >= 0 && index < mLength);
-        return mData[index];
+        return (Type) mData[index];
     }
 
     int GetLength() { return mLength; }
@@ -48,7 +46,7 @@ public class Container
             return;
 
         // Дальше нам нужно выделить новые элементы
-        mData = new int[newLength];
+        mData = new Object[newLength];
         mLength = newLength;
     }
 
@@ -64,7 +62,7 @@ public class Container
         }
 
         // Выделяем новый массив
-        int[] data = new int[newLength];
+        Object[] data = new Object[newLength];
 
         if (mLength > 0)
         {
@@ -82,12 +80,12 @@ public class Container
         mLength = newLength;
     }
 
-    void Insert(int value, int index)
+    void Insert(Type value, int index) //Вставляем value после элемента с индексом index
     {
         assert(index >= 0 && index <= mLength);
 
         // Создаем новый массив на один элемент больше старого массива
-        int[] data = new int[mLength + 1];
+        Object[] data = new Object[mLength + 1];
 
         // Копируем все элементы до index
         for (int before = 0; before < index; before++)
@@ -117,7 +115,7 @@ public class Container
             return;
         }
 
-        int[] data = new int[mLength - 1];
+        Object[] data = new Object[mLength - 1];
 
         for (int before = 0; before  < index; before++)
             data[before] = mData[before];
@@ -132,10 +130,8 @@ public class Container
         --mLength;
     }
 
-    void InsertAtBeginning(int value) { Insert(value, 0); }
+    void InsertAtBeginning(Type value) { Insert(value, 0); }
 
-    void InsertAtEnd(int value) { Insert(value, mLength); }
-
-
+    void InsertAtEnd(Type value) { Insert(value, mLength); }
 
 }

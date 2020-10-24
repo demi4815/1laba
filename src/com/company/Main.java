@@ -11,42 +11,109 @@ public class Main {
         int n;
         n = num.nextInt();
 
-        Container array = new Container(n);
+
+
+        //Для int
+        System.out.println("For int:");
+
+        Container<Integer> arrayInt = new Container<>(n);
 
         // Заполняем массив числами от 1 до n
         for (int i = 0; i < n; i++)
-            array.mData[i] = i + 1;
+            arrayInt.mData[i] = i + 1;
 
-        for (int i = 0; i < array.GetLength(); i++)
-            System.out.print(array.mData[i] + " ");
+        for (int i = 0; i < arrayInt.GetLength(); i++)
+            System.out.print(arrayInt.mData[i] + " ");
         System.out.println();
 
         // Изменяем размер массива до 7 элементов
-        array.Resize2(7);
+        arrayInt.Resize2(7);
 
-        for (int i = 0; i < array.GetLength(); i++)
-            System.out.print(array.mData[i] + " ");
+        for (int i = 0; i < arrayInt.GetLength(); i++)
+            System.out.print(arrayInt.mData[i] + " ");
         System.out.println();
 
         // Вставляем число 15 после элемента с индексом 4
-        array.Insert(15, 4);
+        arrayInt.Insert(15, 4);
 
         // Удаляем элемент с индексом 5
-        array.Remove(5);
+        arrayInt.Remove(5);
 
         // Добавляем числа 35 и 50 в конец и в начало
-        array.InsertAtEnd(35);
-        array.InsertAtBeginning(50);
+        arrayInt.InsertAtEnd(35);
+        arrayInt.InsertAtBeginning(50);
 
         // Выводим все элементы массива
+        for (int i = 0; i < arrayInt.GetLength(); i++)
+            System.out.print(arrayInt.mData[i] + " ");
+        System.out.println();
+
+        // Получаем элемент с индексом 5
+        System.out.println(arrayInt.Get(5));
+
+
+
+        //Для float
+        System.out.println("For float:");
+
+        Container<Float> arrayFloat = new Container<>(n);
+
+        // Заполняем массив числами от 1 до n
+        for (int i = 0; i < n; i++)
+            arrayFloat.mData[i] = i + 1;
+
+        for (int i = 0; i < arrayFloat.GetLength(); i++)
+            System.out.print(arrayFloat.mData[i] + " ");
+        System.out.println();
+
+        // Изменяем размер массива до 7 элементов
+        arrayFloat.Resize2(7);
+
+        for (int i = 0; i < arrayFloat.GetLength(); i++)
+            System.out.print(arrayFloat.mData[i] + " ");
+        System.out.println();
+
+        // Вставляем число 15.4 после элемента с индексом 4
+        arrayFloat.Insert(15.4f, 4);
+
+        // Удаляем элемент с индексом 5
+        arrayFloat.Remove(5);
+
+        // Добавляем числа 35.72 и 50.96 в конец и в начало
+        arrayFloat.InsertAtEnd(35.72f);
+        arrayFloat.InsertAtBeginning(50.96f);
+
+        // Выводим все элементы массива
+        for (int i = 0; i < arrayFloat.GetLength(); i++)
+            System.out.print(arrayFloat.mData[i] + " ");
+        System.out.println();
+
+        // Получаем элемент с индексом 5
+        System.out.println(arrayFloat.Get(5));
+
+
+
+        //Для string
+        System.out.println("For string:");
+        Container<String> array = new Container<>(n);
+
+        array.Insert("zxc", 0);
+        array.Insert("asd", 1);
+        array.Insert("qwe", 2);
+
+        array.Resize2(3);
+
         for (int i = 0; i < array.GetLength(); i++)
             System.out.print(array.mData[i] + " ");
         System.out.println();
 
-        // Получаем элемент с индексом 5
-        int get = array.Get(5);
-        System.out.print(get);
+        array.Remove(1);
 
+        for (int i = 0; i < array.GetLength(); i++)
+        System.out.print(array.mData[i] + " ");
+        System.out.println();
+
+        System.out.print(array.Get(1));
 
     }
 }
