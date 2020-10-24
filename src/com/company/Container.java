@@ -38,7 +38,7 @@ public class Container
 
     int GetLength() { return m_length; }
 
-    void Resize1(int newLength)
+    void Resize1(int newLength)  //Изменение размера массива с удалением всех старых элементов
     {
         // Удаляем все существующие элементы внутри массива
         Erase();
@@ -52,7 +52,7 @@ public class Container
         m_length = newLength;
     }
 
-    void Resize2(int newLength)
+    void Resize2(int newLength) //Изменение размера массива с сохранением всех элементов
     {
         if (newLength == m_length)
             return;
@@ -135,5 +135,7 @@ public class Container
     void InsertAtBeginning(int value) { Insert(value, 0); }
 
     void InsertAtEnd(int value) { Insert(value, m_length); }
+
+
 
 }

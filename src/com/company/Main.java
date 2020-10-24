@@ -41,6 +41,11 @@ public class Main {
         // Выводим все элементы массива
         for (int i = 0; i < array.GetLength(); i++)
             System.out.print(array.m_data[i] + " ");
+        System.out.println();
+
+        // Получаем элемент с индексом 5
+        int get = array.Get(5);
+        System.out.print(get);
 
 
     }
