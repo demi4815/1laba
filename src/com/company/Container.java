@@ -136,4 +136,6 @@ public class Container
 
     void InsertAtEnd(int value) { Insert(value, m_length); }
 
+    int proverka;
+
 }
